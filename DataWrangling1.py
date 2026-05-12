@@ -8,7 +8,7 @@ import seaborn as sns
 
 # Load the Dataset into pandas data frame
 
-df=pd.read_csv(r"C:\Users\tanis\Downloads\titanic_train.csv")
+df=pd.read_csv(r" \titanic_train.csv") change the directory
 
 # Display complete dataset
 df

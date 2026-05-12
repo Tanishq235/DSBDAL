@@ -1,11 +1,22 @@
 import pandas as pd
-import numpy as np
 
-# Load iris dataset
-df = pd.read_csv("iris.csv")
+# Column names
+columns = [
+    'sepal_length',
+    'sepal_width',
+    'petal_length',
+    'petal_width',
+    'species'
+]
 
-# Display dataset
+# Load dataset
+df = pd.read_csv("iris.data", names=columns)
+
+# First rows
 print(df.head())
+
+# Dataset info
+print(df.info())
 
 # Unique species
 print(df['species'].unique())
@@ -19,10 +30,10 @@ print(grouped.mean())
 # Median
 print(grouped.median())
 
-# Minimum
+# Min
 print(grouped.min())
 
-# Maximum
+# Max
 print(grouped.max())
 
 # Standard deviation
@@ -30,9 +41,7 @@ print(grouped.std())
 
 # Percentiles
 print(grouped.quantile(0.25))
-
 print(grouped.quantile(0.50))
-
 print(grouped.quantile(0.75))
 
 # Full statistics

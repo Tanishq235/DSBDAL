@@ -1,0 +1,39 @@
+import pandas as pd
+import numpy as np
+
+# Load iris dataset
+df = pd.read_csv("iris.csv")
+
+# Display dataset
+print(df.head())
+
+# Unique species
+print(df['species'].unique())
+
+# Group by species
+grouped = df.groupby('species')
+
+# Mean
+print(grouped.mean())
+
+# Median
+print(grouped.median())
+
+# Minimum
+print(grouped.min())
+
+# Maximum
+print(grouped.max())
+
+# Standard deviation
+print(grouped.std())
+
+# Percentiles
+print(grouped.quantile(0.25))
+
+print(grouped.quantile(0.50))
+
+print(grouped.quantile(0.75))
+
+# Full statistics
+print(grouped.describe())

@@ -1,75 +1,86 @@
-# Importing required libraries
+# Import pandas library for data handling and analysis
 import pandas as pd
+
+# Import numpy library for numerical operations
 import numpy as np
-import matplotlib.pyplot as plt
+
+# Import seaborn library for data visualization
 import seaborn as sns
 
-# Load dataset
+# Read the iris dataset from CSV file
 df = pd.read_csv(r"C:\Users\tanis\Downloads\iris.csv")
 
-# Display first 5 rows
+# Display first 5 rows of the dataset
 df.head()
 
-# Dataset information
+# Show dataset information like columns and data types
 df.info()
 
-# Checking missing values
+# Check for missing values in each column
 df.isnull().sum()
 
-# Dataset dimensions
+# Display number of rows and columns
 df.shape
 
-# Display column names
+# Display all column names
 df.columns
 
-# Unique variety names
+# Show unique flower varieties
 df['variety'].unique()
 
-# Mean values grouped by variety
+# Calculate mean values for each variety
 df.groupby('variety').mean(numeric_only=True)
 
-# Median values grouped by variety
+# Calculate median values for each variety
 df.groupby('variety').median(numeric_only=True)
 
-# Minimum values grouped by variety
+# Find minimum values for each variety
 df.groupby('variety').min()
 
-# Maximum values grouped by variety
+# Find maximum values for each variety
 df.groupby('variety').max()
 
-# Standard deviation grouped by variety
+# Calculate standard deviation for each variety
 df.groupby('variety').std(numeric_only=True)
 
-# Numeric list for Setosa
+# Create list of sepal length values for Setosa flowers
 setosa = df[df['variety'] == 'Setosa']['sepal.length'].tolist()
+
+# Display Setosa sepal length list
 setosa
 
-# Numeric list for Versicolor
+# Create list of sepal length values for Versicolor flowers
 versicolor = df[df['variety'] == 'Versicolor']['sepal.length'].tolist()
+
+# Display Versicolor sepal length list
 versicolor
 
-# Numeric list for Virginica
+# Create list of sepal length values for Virginica flowers
 virginica = df[df['variety'] == 'Virginica']['sepal.length'].tolist()
+
+# Display Virginica sepal length list
 virginica
 
-# Statistical details for Setosa
+# Filter dataset for Setosa flowers
 setosa_data = df[df['variety'] == 'Setosa']
+
+# Show statistical summary of Setosa data
 setosa_data.describe()
 
-# Statistical details for Versicolor
+# Filter dataset for Versicolor flowers
 versicolor_data = df[df['variety'] == 'Versicolor']
+
+# Show statistical summary of Versicolor data
 versicolor_data.describe()
 
-# Statistical details for Virginica
+# Filter dataset for Virginica flowers
 virginica_data = df[df['variety'] == 'Virginica']
+
+# Show statistical summary of Virginica data
 virginica_data.describe()
 
-# Percentiles for dataset
+# Calculate 25th, 50th and 75th percentiles
 df.quantile([0.25, 0.50, 0.75], numeric_only=True)
 
-# Histogram of petal length
+# Plot histogram of petal length values
 sns.histplot(df['petal.length'], kde=True)
-
-plt.title("Petal Length Distribution")
-
-plt.show()
